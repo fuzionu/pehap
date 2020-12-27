@@ -13,14 +13,12 @@ function fillList()
 	
 	return $list;
 }
-function showNames()
+function showNames($list)
 {
-	$list = fillList(20);
 	foreach ($list as $name)
 	{
 		echo 'Name: '.$name."\n";
 	}
 }
-
-showNames();
+showNames(fillList(20));
 ?>
