@@ -15,10 +15,9 @@ $list = [
 	'Kinga',
 	'Karolina'
 ];
-$listSize = count($list);
 
-for ($x = 0; $x < $listSize; $x++)
+foreach ($list as $name)
 {
-	echo "Imie: ".$list[$x]." \n";
+	echo 'Imie: '.$name."\n";
 }
 ?>
