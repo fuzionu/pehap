@@ -2,11 +2,11 @@
 
 require("vendor\autoload.php");
 
-function fillList()
+function fillList($namesAmount)
 {	
 	$faker = \Faker\Factory ::create();
 	
-	for ($x = 0; $x < 20; $x++)
+	for ($x = 0; $x < $namesAmount; $x++)
 	{
 		$list[$x] = $faker->name;
 	}
@@ -20,5 +20,5 @@ function showNames($list)
 		echo 'Name: '.$name."\n";
 	}
 }
-showNames(fillList(20));
+showNames(fillList(5));
 ?>
