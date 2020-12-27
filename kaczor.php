@@ -1,24 +1,24 @@
 <?php
 
 require("vendor\autoload.php");
+use Faker\Factory;
 
-function fillList($namesAmount)
+function fillFakeNames($namesAmount)
 {	
-	$faker = \Faker\Factory ::create();
+	$faker = Factory::create();
 	
-	for ($x = 0; $x < $namesAmount; $x++)
+	for ($i = 0; $i < $namesAmount; $i++)
 	{
-		$list[$x] = $faker->name;
+		$list[$i] = $faker->name;
 	}
 	
 	return $list;
 }
-function showNames($list)
+function printNames($list)
 {
 	foreach ($list as $name)
 	{
 		echo 'Name: '.$name."\n";
 	}
 }
-showNames(fillList(5));
-?>
+printNames(fillFakeNames(7));
