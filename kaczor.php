@@ -2,6 +2,7 @@
 
 $file = './daniel.txt';
 
+
 function getContents($file)
 {
 	$fileContents = trim(file_get_contents($file));
@@ -21,19 +22,28 @@ function processToUppercase($fileContents)
 	return strtoupper($fileContents);
 }
 
-if (file_exists($file))
+function handleFileContents($file, $fileContents)
 {
-	$fileContents = getContents($file);
-	
 	if ($fileContents == false)
 	{
 		echo 'File is empty';
 	}
+	else if (is_numeric($fileContents))
+	{
+		echo 'File contains digits only, nothing to process';
+	}
 	else
 	{
 		file_put_contents($file, processToUppercase($fileContents));
-		echo 'Contents of file processed to uppercase';
+		echo 'Contents of file processed to upper case';
 	}
+}
+
+
+if (file_exists($file))
+{
+	$fileContents = getContents($file);
+	handleFileContents($file, $fileContents);	
 }
 else
 {
