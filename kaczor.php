@@ -1,24 +1,42 @@
 <?php
 
-require("vendor\autoload.php");
-use Faker\Factory;
+$file = './daniel.txt';
 
-function fillFakeNames($namesAmount)
-{	
-	$faker = Factory::create();
-	
-	for ($i = 0; $i < $namesAmount; $i++)
-	{
-		$list[$i] = $faker->name;
-	}
-	
-	return $list;
-}
-function printNames($list)
+function getContents($file)
 {
-	foreach ($list as $name)
+	$fileContents = trim(file_get_contents($file));
+	
+	if ($fileContents == false)
 	{
-		echo 'Name: '.$name."\n";
+		return false;
+	}
+	else
+	{
+		return $fileContents;
 	}
 }
-printNames(fillFakeNames(7));
+
+function processToUppercase($fileContents)
+{
+	return strtoupper($fileContents);
+}
+
+if (file_exists($file))
+{
+	$fileContents = getContents($file);
+	
+	if ($fileContents == false)
+	{
+		echo 'File is empty';
+	}
+	else
+	{
+		file_put_contents($file, processToUppercase($fileContents));
+		echo 'Contents of file processed to uppercase';
+	}
+}
+else
+{
+	echo 'File does not exist';
+}
+
