@@ -9,7 +9,7 @@ function countAndAdd($array)
 	if (count($array) % 2 === 0)
 	{
 		$array[] = $faker->name;		
-		echo 'Added name to the file';
+		echo 'Added name to the file'."\n";
 		
 		return $array;
 	}
@@ -19,7 +19,7 @@ function countAndAdd($array)
 		$array[] = $faker->name;
 	}
 	
-	echo 'Added three names to the file';
+	echo 'Added three names to the file'."\n";
 	return $array;
 }
 
