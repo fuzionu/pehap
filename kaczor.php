@@ -8,8 +8,9 @@ function countAndAdd($array)
 	
 	if (count($array) % 2 === 0)
 	{
-		echo 'Added name to the file';
 		$array[] = $faker->name;		
+		echo 'Added name to the file';
+		
 		return $array;
 	}
 	
@@ -22,13 +23,10 @@ function countAndAdd($array)
 	return $array;
 }
 
-
 if (file_exists('daniel.json'))
 {	
-	$decodedJson = json_decode(file_get_contents('daniel.json'), true);
-	$innerArray = $decodedJson['names'];
-	
-	$innerArray = countAndAdd($innerArray);
+	$decodedJson = json_decode(file_get_contents('daniel.json'), true);	
+	$innerArray = countAndAdd($decodedJson['names']);
 	
 	$decodedJson['names'] = $innerArray;
 	file_put_contents('daniel.json', json_encode($decodedJson));
