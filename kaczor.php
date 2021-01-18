@@ -5,11 +5,12 @@ require("vendor\autoload.php");
 function drawAndAdd(array $array): array
 {
 	$faker = \Faker\Factory ::create();
-	$randNum = rand(0, count($array)-1);	
-	$array[$randNum] = $faker->name;
+	$randNum = rand(0, count($array)-1);
+	$fakeName = $faker->name;
+	$array[$randNum] = $fakeName;
 	
 	$randNum += 1;
-	echo 'Added name at field '.$randNum;
+	echo 'Added name "'.$fakeName.'" at field '.$randNum;
 	
 	return $array;
 }
