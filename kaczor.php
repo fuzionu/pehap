@@ -20,8 +20,9 @@ if (file_exists('daniel.json'))
 	$decodedJson = json_decode(file_get_contents('daniel.json'), true);
 	$innerArray = drawAndAdd($decodedJson['names']);
 
-	$decodedJson['names'] = $innerArray;
-	file_put_contents('daniel.json', json_encode($decodedJson));
+	$encodedJson = [];
+	$encodedJson['names'] = $innerArray;
+	file_put_contents('daniel.json', json_encode($encodedJson));
 }
 
 else
